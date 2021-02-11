@@ -11,6 +11,8 @@ public class Weapon : MonoBehaviour
     public GameObject projectile;
     public Transform projectilePos;
     public float timeBetweenShots;
+
+    public int bulletInstantiationCount;
     public List<GameObject> bulletList= new List<GameObject>();
 
     public Transform bulletParent;
@@ -23,7 +25,7 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < bulletInstantiationCount; i++)
         {
             InstantiateBullets();
         }
@@ -60,19 +62,21 @@ public class Weapon : MonoBehaviour
                         bulletList[i].SetActive(true);
                         break;
                     }
+                }
 
-                    else
-                    {
-                        GameObject bullets = Instantiate(projectile, projectilePos.position, transform.rotation);
-
-                        bulletList.Add(bullets);                     
-                        bullets.transform.parent = bulletParent.transform;
-                        bullets.transform.rotation = this.transform.rotation;
-
-                    }
 
                     
-                }
+                    
+              // GameObject bullets = Instantiate(projectile, projectilePos.position, transform.rotation);
+
+              // bulletList.Add(bullets);                     
+              // bullets.transform.parent = bulletParent.transform;
+              //bullets.transform.rotation = this.transform.rotation;
+
+                    
+
+                    
+                
                 shotTime = Time.time + timeBetweenShots;
             }
         }

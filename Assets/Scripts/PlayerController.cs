@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
 
-
+    public float health;
 
     //private variables
     Vector2 moveAmount;
@@ -40,5 +40,10 @@ public class PlayerController : MonoBehaviour
     {
         rb.MovePosition(rb.position + moveAmount*Time.fixedDeltaTime);
         //Debug.Log(rb.position);
+    }
+    public void TakeDamage(int damage) {
+
+        damage -= 1;
+    
     }
 }
